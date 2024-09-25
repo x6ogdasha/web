@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <title>Порфтолио</title>
+    <link rel="stylesheet" href="outline-prototype-label.css">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Портфолио, разработка, важно">
+    <meta name="description" content="Портфолио Китаева Богдана с кратким описанием работ, примерами кода,
+        накопившиеся за 3 года обучения">
+</head>
+<body>
+<header>
+    <h1>Порфтолио</h1>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="projects.html">Мои проекты</a>
+        <a href="codeExamples.html">Примеры кода</a>
+        <a href="aboutMe.html">Обо мне</a>
+    </nav>
+</header>
+<main>
+    <h2>Примеры кода</h2>
+    <section>
+        <h3>Метод GET из RESTful контроллера</h3>
+
+        <pre>
+            <code>
+            @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+            @PostAuthorize("(returnObject.body.owner == principal.username) || hasAuthority('ROLE_ADMIN')")
+            public ResponseEntity&lt;CatDto&gt; <strong>getCat(@RequestParam Long id)</strong> throws CatNotFoundException {
+
+                CatDto cat = catService.findCat(id);
+                if (cat == null) throw new CatNotFoundException("No this cat ");
+                return ResponseEntity.ok(cat);
+                }
+            </code>
+        </pre>
+    </section>
+</main>
+<footer>
+    <h5>Контактная информация</h5>
+    <section>
+        <p>
+            <b>Внимание!</b> Для связи пишите мне в телеграм:
+        </p>
+        <a href="https://www.t.me/x6ogdasha">@x6ogdasha</a>
+    </section>
+</footer>
+</body>
+</html>
