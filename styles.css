@@ -2,7 +2,8 @@
     --primary-color: #1e272e;
     --second-color: #FFFFFF;
     --hover-color: #3dc1d3;
-    --footer-color: #f1f2f6
+    --footer-color: #f1f2f6;
+    --active-bg-color: #3dc1d3;
 }
 
 html, body {
@@ -82,7 +83,7 @@ p{
 .nav-element {
     display: flex;
     padding: 1%;
-    #margin: auto;
+    text-decoration: none;
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -91,13 +92,20 @@ p{
     text-decoration: none;
 }
 
+.nav-element.active {
+    background-color: var(--active-bg-color);
+    border-radius: 7%;
+}
+.nav-element.active:hover {
+    color: var(--second-color);
+    background-color: var(--active-bg-color);
+
+}
 .nav-link {
     color: var(--second-color);
     margin-left: 10px;
     transition: color 0.3s ease;
     letter-spacing: 2px;
-
-
 }
 
 .image-link {
@@ -105,11 +113,11 @@ p{
     transition: fill 0.3s ease;
 }
 
-.nav-element:hover .nav-link {
+.nav-element:hover:not(.active) .nav-link {
     color: var(--hover-color);
 }
 
-.nav-element:hover .image-link {
+.nav-element:hover:not(.active) .image-link {
     color: var(--hover-color);
 }
 
